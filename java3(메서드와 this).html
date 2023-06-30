@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>메서드와 this편</h2>
+    <p>매세드란 객체에 속한 함수를 가르키는 용업입니다</p>
+    <p>메서드 만드는법은</p>
+    <p>let user = {<br>
+        name: "John",<br>
+        age: 30<br>
+      };<br>
+      
+      user.sayHi = function() {<br>
+        alert("안녕하세요!");<br>
+      };<br>
+      
+      user.sayHi(); // 안녕하세요!</p><br></p>
+      <p>위코드에서 user에 할당된 sayhi가 즉 객체 프로퍼티에 할당된 함수니 이게 메서드가 됩니다</p>
+      <p>객체지향 프로그래밍이란 객체를 사용하여 개체를 표현하는 방식을 말합니다</p>
+      <p>메서드와 this</p>
+      <p>this는 객체를 나타냅니다(메서드 호출 객체)</p>
+      <p>메서드는 객체에 정보에 접근할수 잇어야합니다</p>
+      <p>let user = {<br>
+        name: "John",<br>
+        age: 30,<br>
+      
+        sayHi() {<br>
+          alert(user.name); // 'this' 대신 'user'를 이용함<br>
+        }<br>
+      
+      };<br>
+        </p>
+        <p>위 코드에서 this는 user를 나타냅니다 물론 this도 안쓰고 다가갈수잇지만 오류가 생길수도있습니다</p>
+        <p>this의 특별함</p>
+        <p>this는 자유롭습니다 그이유로는 자바스크립트의 this는 다른 프로그래밍 언어와 다르기 때문인데요</p>
+        <p>자바스크립트에선 모든 함수에 사용할수있습니다</p>
+        <p>
+            function sayHi() {<br>
+                alert( this.name );<br>
+            }<br>
+            코드를 보면 메서드가 없지만 사용된 모습입니다
+        </p>
+        <p>그리고 객체도 없이 사용할수있습니다</p>
+        <p>function sayHi() {<br>
+            alert(this);<br>
+          }<br>
+          
+          sayHi(); // undefined</p>
+
+        <h3>과제</h3>
+        <ul>문제
+            <li>계산기 만들기</li>
+            
+        </ul>
+        <ul>풀이
+            <li>let calculator = {<br>
+                sum() {<br>
+                  return this.a + this.b;<br>
+                },<br>
+              
+                mul() {<br>
+                  return this.a * this.b;<br>
+                },<br>
+              
+                read() {<br>
+                  this.a = +prompt('첫 번째 값:', 0);<br>
+                  this.b = +prompt('두 번째 값:', 0);<br>
+                }<br>
+              };<br>
+              
+              calculator.read();<br>
+              alert( calculator.sum() );<br>
+              alert( calculator.mul() );</li>
+
+        </ul>
+
+        <script>
+let calculator = {
+  sum() {
+    return this.a + this.b;
+  },
+
+  mul() {
+    return this.a * this.b;
+  },
+
+  read() {
+    this.a = +prompt('첫 번째 값:', 0);
+    this.b = +prompt('두 번째 값:', 0);
+  }
+};
+
+calculator.read();
+alert( calculator.sum() );
+alert( calculator.mul() );
+        </script>
+</body>
+</html>

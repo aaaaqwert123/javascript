@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>자바스크립트 공부2</h1>
+    <h2>객체편</h2>
+    <p>객체의 만드는법</p>
+    <p>let user = new Object(); // '객체 생성자' 문법<br>
+        let user = {};  // '객체 리터럴' 문법</p>
+    <p>객체 안은 키와 값의 쌍으로 구성된 프로퍼티가 들어갑니다</p>
+    <p>let user = {     // 객체 <br>
+        name: "John",  // 키: "name",  값: "John"<br>
+        age: 30        // 키: "age", 값: 30<br>
+      };</p>
+      <p>콜론을 기준으로 왼쪽은 키 오른쪽은 값이 들어갑니다</p>
+      <p>이 프로퍼티를 추가 삭제할수도잇습니다 (읽기도 가능)</p>
+        <ul>프로퍼티 값얻기
+        <li>alert( user.name ); // John</li>
+        <li>alert( user.age ); // 30</li>
+        </ul>
+        <ul>삭제
+            <li>delete user.age;</li>
+        </ul>
+        <p>여기서 프로퍼티를 묶을땐 이름을따움표로 묶어줘야합니다 끝은 쉼표로 끝낼수있습니다</p>
+        <p>계산된 프로퍼티란 프로퍼티키가 대괄호로 둘러쌓인 경우를 말합니다</p>
+        <p>let fruit = prompt("어떤 과일을 구매하시겠습니까?", "apple");
+
+            let bag = {
+              [fruit]: 5, // 변수 fruit에서 프로퍼티 이름을 동적으로 받아 옵니다.
+            };
+            
+            alert( bag.apple ); // fruit에 "apple"이 할당되었다면, 5가 출력됩니다.</p>
+            
+            <p>in연산자로 존재여부 확인도 가능합니다</p>
+            <p>이를 활용하여 반복문제 넣을수더잇습니다</p>
+            <p>for (key in object) {}</p>
+            <p>객체는 키가 정수일 경우 정수순으로 정렬되고 아닐경우 작성된 순서대로 프로퍼티가 나옵니다</p>
+            <h3>이 밑은 과제입니다</h3>
+            <ul>과제
+                <li>1 객체가 비어잇는지 확인하기</li>
+                <li>2 프로퍼티 합계 구하기</li>
+                <li>3 프로퍼티 값 두 배로 부풀리기</li>
+            </ul>
+            <ul>풀이
+                <li>1 function inkey(obj){<br>
+                    for (let key in obj){<br>
+                        return true;<br>
+                    }<br>
+                    return false<br>
+                }<br>
+                let none = {};<br>
+                alert(inkey(none));<br>
+                <br>
+                none["8:30"] = "get up"<br>
+                alert(inkey(none))</li>
+                <li>2 
+                    function inkeysam(keys){<br>
+                        let i = 0;<br>
+                        if(!keys){<br>
+                            return alert('키의값이 없습니다') <br>
+                        }<br>
+                        else{<br>
+                            for (let key in keys){<br>
+                                i += keys[key];<br>
+                            }<br>
+                        }<br>
+                        return i;<br>
+                    }<br>
+                    let addd = {<br>
+                        John: 100,<br>
+                        Ann: 160,<br>
+                        Pete: 130<br>
+                    };<br>
+                    alert(inkeysam(addd));<br>
+                </li>
+                <li>
+                    3 function inkeyadd2(keyss) {<br>
+                        for (let key in keyss) {<br>
+                          if (typeof keyss[key] === 'number') {<br>
+                            keyss[key] *= 2;<br>
+                          }<br>
+                        }<br>
+                        return keyss;<br>
+                      }<br>
+                      
+                      let menu = {<br>
+                        width: 200,<br>
+                        height: 300,<br>
+                        title: "My menu"<br>
+                      };<br>
+                      
+                      inkeyadd2(menu);<br>
+                      alert(JSON.stringify(menu));<br>
+                </li>
+            </ul>
+    <script>
+        function inkey(obj){
+            for (let key in obj){
+                return true;
+            }
+            return false
+        }
+        let none = {};
+        alert(inkey(none));
+
+        none["8:30"] = "get up"
+        alert(inkey(none))
+    </script>
+    <script>
+        function inkeysam(keys){
+            let i = 0;
+            if(!keys){
+                return alert('키의값이 없습니다') 
+            }
+            else{
+                for (let key in keys){
+                    i += keys[key];
+                }
+            }
+            return i;
+        }
+        let addd = {
+            John: 100,
+            Ann: 160,
+            Pete: 130
+        };
+        alert(inkeysam(addd));
+
+    </script>
+    <script>
+        function inkeyadd2(keyss) {
+  for (let key in keyss) {
+    if (typeof keyss[key] === 'number') {
+      keyss[key] *= 2;
+    }
+  }
+  return keyss;
+}
+
+let menu = {
+  width: 200,
+  height: 300,
+  title: "My menu"
+};
+
+inkeyadd2(menu);
+alert(JSON.stringify(menu));
+    </script>
+</body>
+</html>

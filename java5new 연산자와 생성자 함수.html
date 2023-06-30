@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>new 연산자와 생성자 함수</h1>
+    <h3>사용하는이유</h3>
+    <p>객체 리터럴을({...}) 사용하면 객체를 쉽게만들수있습니다 하지만 유사항 객체를 만들어야할때가있습니다 복수사용자,메뉴내 아이템을 객체로 편하려할때 그런경우죠</p>
+    <p>여기서 new연산자와 생성자 함수를 사용하여 유사한 객체를 여러개를 생성할수있습니다</p>
+    <br>
+    <br>
+    <h3>생성자 함수</h3>
+    <p>생성자 함수는 손쉽게 사용자 객체를 만들 수 있습니다. 그리고 읽기쉽게 만들수도잇죠</p>
+    <p>생성자 함수는 일반적인 함수와 기술적인 차이는 없지만 두 관계를따릅니다</p>
+    <ul>
+        <li>함수 이름의 첫 글자는 대문자로 시작합니다.</li>
+        <li>반드시 'new' 연산자를 붙여 실행합니다.</li>
+    </ul>
+
+    <br>
+    <p>주의할점은 여기서 모든 함수는 생성자 함수가 될 수 있습니다.</p>
+    <br>
+    <h3>생성자와 return문</h3>
+    <p>생성자 함수엔 보통 return이 없습니다 반환해야 할건 this에 저장되고 자동으로 변환되기 때문입니다.</p>
+    <p>만약 return이 있다면 어떻게 될까요?</p>
+    <ul>
+        <li>객체를 return 한다면 this 대신 객체가 반환됩니다.</li>
+        <li>원시형을 return 한다면 return문이 무시됩니다.</li>
+    </ul>
+    <br>
+    <h3>요약</h3>
+    <ul>
+        <li>생성자 함수(짧게 줄여서 생성자)는 일반 함수입니다. 다만, 일반 함수와 구분하기 위해 함수 이름 첫 글자를 대문자로 씁니다.</li>
+        <li>생성자 함수는 반드시 new 연산자와 함께 호출해야 합니다. new와 함께 호출하면 내부에서 this가 암시적으로 만들어지고, 마지막엔 this가 반환됩니다.</li>
+    </ul>
+    <h3>그리고 잘 이해가 안되서 이 영상 참고했습니다</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/qnOX3M7VpQ8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <br>
+    <h3>과제</h3>
+    <ul>
+        <li>
+            계산기 만들기
+        </li>
+        <li>
+            누산기 만들기
+        </li>
+    </ul>
+    <br>
+    <ul>풀이
+        <li>
+            function Calculator() {<br>
+
+                this.read = function() {<br>
+                  this.a = +prompt('a?', 0);<br>
+                  this.b = +prompt('b?', 0);<br>
+                };<br>
+                
+                this.sum = function() {<br>
+                  return this.a + this.b;<br>
+                };<br>
+                
+                this.mul = function() {<br>
+                  return this.a * this.b;<br>
+                };<br>
+                }<br>
+                
+                let calculator = new Calculator();<br>
+                calculator.read();<br>
+                
+                alert( "Sum=" + calculator.sum() );<br>
+                alert( "Mul=" + calculator.mul() );<br>
+        </li>
+        <br>
+        <li>
+            function Accumulator(a){<br>
+                this.val = a;<br>
+                this.read = function(){<br>
+                    this.val+=+prompt('더할갑을 입력해주세요',0);<br>
+        
+                };
+            }
+            let a = +prompt('추가할 값을 입력해주세요',0);<br>
+            let accumulator = new Accumulator(a);<br>
+            accumulator.read();<br>
+            accumulator.read();<br>
+            alert(accumulator.val);<br>
+        </li>
+    </ul>
+
+
+    
+<script>
+    function Calculator() {
+
+this.read = function() {
+  this.a = +prompt('a?', 0);
+  this.b = +prompt('b?', 0);
+};
+
+this.sum = function() {
+  return this.a + this.b;
+};
+
+this.mul = function() {
+  return this.a * this.b;
+};
+}
+
+let calculator = new Calculator();
+calculator.read();
+
+alert( "Sum=" + calculator.sum() );
+alert( "Mul=" + calculator.mul() );
+</script>
+<script>
+    
+    function Accumulator(a){
+        this.val = a;
+        this.read = function(){
+            this.val+=+prompt('더할갑을 입력해주세요',0);
+
+        };
+    }
+    let a = +prompt('추가할 값을 입력해주세요',0);
+    let accumulator = new Accumulator(a);
+    accumulator.read();
+    accumulator.read();
+    alert(accumulator.val);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java 공부</title>
+    <style>
+        /* CSS 스타일을 추가합니다. */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            margin: 20px 0;
+            display: none; /* 처음에는 숨깁니다. */
+        }
+
+        .start-button {
+            display: block;
+            margin: 0 auto;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background-color: black;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-align: center;
+            width: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s ease, transform 0.3s ease; /* transform 속성에도 transition을 추가합니다. */
+        }
+
+        .start-button.clicked {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.8); /* 버튼을 클릭 시 작아지는 효과를 추가합니다. */
+        }
+
+        .start-button:hover {
+            transform: translate(-50%, -50%) scale(1.1); /* 마우스 오버 시 버튼이 조금 크게 보이도록 효과를 줍니다. */
+        }
+
+        .link-list {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .link-list a {
+            display: block;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #ebebeb;
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .link-list a:hover {
+            background-color: #d5d5d5;
+        }
+
+        .start-button.clicked:hover::after {
+            content: "이동하시겠습니까?";
+            display: block;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">Java 공부</h1>
+    <button class="start-button">스타트 버튼</button>
+    <div class="link-list">
+        <a href="java1(변수 조건문 반복문).html">변수 조건문 반복문</a>
+        <a href="java배열.html">배열</a>
+        <a href="java2(객체).html">객체</a>
+        <a href="java3(메서드와 this).html">메서드와 this</a>
+        <a href="java4가비지 컬렉션.html">가비지 컬렉션</a>
+        <a href="java5new 연산자와 생성자 함수.html">연산자와 생성자 함수</a>
+        <a href="java6옵셔널 체이닝.html">옵셔널 체이닝</a>
+        <a href="java모듈.html">모듈</a>
+    </div>
+
+    <script>
+        
+        // JavaScript를 추가합니다.
+        const startButton = document.querySelector('.start-button');
+        const linkList = document.querySelector('.link-list');
+        const title = document.getElementById('title');
+
+        startButton.addEventListener('click', () => {
+            startButton.classList.add('clicked');
+            linkList.style.display = 'block';
+            title.style.display = 'block'; // 버튼 클릭 시 타이틀을 보이도록 설정
+        });
+    </script>
+    <style>
+        /* 기존 CSS 스타일 유지 */
+    
+        .link-list a:hover {
+            transform: translateY(-3px); /* 마우스 오버 시 살짝 위로 이동하는 효과를 줍니다. */
+        }
+    </style>
+    
+    
+    
+    
+    
+    
+    
+    
+</body>
+</html>
